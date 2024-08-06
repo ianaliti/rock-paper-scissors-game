@@ -1,6 +1,7 @@
 import React from 'react';
 import '../styles/Scoreboard.css';
 
+// Scoreboard component to display the current score
 const Scoreboard = ({ score }) => {
   return (
     <div className="scoreboard">

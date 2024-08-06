@@ -2,6 +2,8 @@ import React from 'react';
 import '../styles/Result.css';
 
 const Result = ({ playerChoice, computerChoice, result }) => {
+
+//Return result message
   const getResultMessage = () => {
     if (result === 'win') return 'You Win!';
     if (result === 'lose') return 'You Lose!';

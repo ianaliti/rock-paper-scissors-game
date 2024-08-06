@@ -20,17 +20,17 @@
   }
   
   .result.win {
-    color: #f5c542; 
+    color: #e6c059; 
     animation-name: winAnimation;
   }
   
   .result.lose {
-    color: #f1b800; 
+    color: #f18900; 
     animation-name: loseAnimation;
   }
   
   .result.draw {
-    color: #f5c542; 
+    color: #ffbb00; 
     animation-name: drawAnimation;
   }
   

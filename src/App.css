@@ -2,37 +2,94 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.landing-page {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: 100vh;
+  background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+  color: #fff;
 }
 
-.App-link {
-  color: #61dafb;
+.landing-page h1 {
+  font-size: 3rem;
+  margin-bottom: 2rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.landing-page button {
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  color: #fff;
+  background-color: #ff6363;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.landing-page button:hover {
+  transform: scale(1.1);
+}
+
+/* Game */
+
+.game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #fefefa 0%, #fbf5c2 100%);
+  color: #333;
+}
+
+.choices {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.choices button {
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  color: #fff;
+  background-color: #f6c905;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.choices button:hover {
+  transform: scale(1.1);
+}
+
+
+/* Result */
+
+.result {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.result p {
+  font-size: 1.2rem;
+}
+
+.result h2 {
+  font-size: 2rem;
+  margin-top: 1rem;
+}
+
+/* Scoreboard */
+
+.scoreboard {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  background-color: #f1e863;
+  padding: 1rem;
+  color: #000000;
+  font-size: 1.2rem;
 }

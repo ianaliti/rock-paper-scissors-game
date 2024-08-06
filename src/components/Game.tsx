@@ -1,26 +1,31 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHandRock, faHandPaper, faHandScissors, faArrowLeft, faRedo } from '@fortawesome/free-solid-svg-icons';
+import { faHandRock, faHandPaper, faHandScissors, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import Result from './Result';
 import Scoreboard from './Scoreboard';
 import '../styles/Game.css';
 
+interface Choice {
+    name: 'rock' | 'paper' | 'scissors';
+    icon: any;
+  }
+
 // Define the choices for rock-paper-scissors
-const choices = [
+const choices: Choice[] = [
   { name: 'rock', icon: faHandRock },
   { name: 'paper', icon: faHandPaper },
   { name: 'scissors', icon: faHandScissors },
 ];
 
 //Get randome computer choice
-const getRandomChoice = () => {
+const getRandomChoice = (): Choice => {
   const randomIndex = Math.floor(Math.random() * choices.length);
   return choices[randomIndex];
 };
 
 
   // Function to determine the winner
-const determineWinner = (playerChoice, computerChoice) => {
+  const determineWinner = (playerChoice: string, computerChoice: string): 'win' | 'lose' | 'draw' => {
   if (playerChoice === computerChoice) return 'draw';
   if (
     (playerChoice === 'rock' && computerChoice === 'scissors') ||
@@ -32,15 +37,19 @@ const determineWinner = (playerChoice, computerChoice) => {
   return 'lose';
 };
 
+interface GameProps {
+  resetGame: () => void;
+}
+
 // Main Game component
-const Game = ({ resetGame }) => {
-  const [playerChoice, setPlayerChoice] = useState(null);
-  const [computerChoice, setComputerChoice] = useState(null);
-  const [result, setResult] = useState(null);
-  const [score, setScore] = useState({ player: 0, computer: 0 });
+const Game: React.FC<GameProps> = ({ resetGame }) => {
+  const [playerChoice, setPlayerChoice] = useState<Choice | null>(null);
+  const [computerChoice, setComputerChoice] = useState<Choice | null>(null);
+  const [result, setResult] = useState<'win' | 'lose' | 'draw' | null>(null);
+  const [score, setScore] = useState<{ player: number; computer: number }>({ player: 0, computer: 0 });
 
 // Function to determine the result of the game
-  const handleChoice = (choice) => {
+  const handleChoice = (choice: Choice) => {
     const computerSelection = getRandomChoice();
     const gameResult = determineWinner(choice.name, computerSelection.name);
 

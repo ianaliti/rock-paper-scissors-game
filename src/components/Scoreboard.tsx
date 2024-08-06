@@ -1,8 +1,14 @@
 import React from 'react';
 import '../styles/Scoreboard.css';
 
+interface ScoreboardProps {
+  score: {
+    player: number;
+    computer: number;
+  };
+}
 // Scoreboard component to display the current score
-const Scoreboard = ({ score }) => {
+const Scoreboard: React.FC<ScoreboardProps> = ({ score }) => {
   return (
     <div className="scoreboard">
       <div className="score player">

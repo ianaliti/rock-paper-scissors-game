@@ -28,9 +28,12 @@
   .try-again-button {
     margin-top: 1rem;
     font-size: 1.2rem;
-    color: #1e1d1d;
+    color: #ff6363;
     background: none;
-    border: none;
+    border: 1px solid #ff6363;
+    border-radius: 25px;
+    width: 7rem;
+    height: 3rem;
     cursor: pointer;
     text-decoration: none;
   }
@@ -50,7 +53,7 @@
     padding: 1rem;
     font-size: 1.2rem;
     color: #333;
-    background-color: #f5c542; /* Primary yellow */
+    background-color: #f5c542;
     border: none;
     border-radius: 50%;
     cursor: pointer;
@@ -59,7 +62,7 @@
   
   .choices button:hover {
     transform: scale(1.1);
-    background-color: #f1b800; /* Darker yellow on hover */
+    background-color: #f1b800; 
   }
   
   @media (max-width: 600px) {

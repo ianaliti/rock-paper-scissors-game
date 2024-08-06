@@ -1,8 +1,14 @@
 import React from 'react';
 import '../styles/Result.css';
 
-const Result = ({ playerChoice, computerChoice, result }) => {
 
+interface ResultProps {
+  playerChoice: { name: string } | null;
+  computerChoice: { name: string } | null;
+  result: 'win' | 'lose' | 'draw' | null;
+}
+
+const Result: React.FC<ResultProps> = ({ playerChoice, computerChoice, result }) => {
 //Return result message
   const getResultMessage = () => {
     if (result === 'win') return 'You Win!';
@@ -15,10 +21,10 @@ const Result = ({ playerChoice, computerChoice, result }) => {
   return (
     <div className={`result ${resultClass}`}>
       <div className="player-choice">
-        <p><strong>You chose:</strong> {playerChoice.name}</p>
+        <p><strong>You chose:</strong> {playerChoice ? playerChoice.name : 'None'}</p>
       </div>
       <div className="computer-choice">
-        <p><strong>Computer chose:</strong> {computerChoice.name}</p>
+        <p><strong>Computer chose:</strong> {computerChoice ? computerChoice.name : 'None'}</p>
       </div>
       <h2>{getResultMessage()}</h2>
     </div>

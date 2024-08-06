@@ -1,7 +1,10 @@
 import React from 'react';
 import '../styles/LandingPage.css';
 
-const LandingPage = ({ startGame }) => {
+interface LandingPageProps {
+  startGame: () => void;
+}
+const LandingPage: React.FC<LandingPageProps> = ({ startGame }) => { 
   return (
     <div className="landing-page">
       <h1>Rock-Paper-Scissors: The Ultimate Showdown!</h1>

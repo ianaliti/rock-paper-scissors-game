@@ -3,8 +3,8 @@ import LandingPage from './LandingPage';
 import Game from './Game';
 import '../styles/App.css';
 
-const App = () => {
-  const [gameStarted, setGameStarted] = useState(false);
+const App: React.FC = () => {
+  const [gameStarted, setGameStarted] = useState<boolean>(false);
 
   const startGame = () => {
     setGameStarted(true);

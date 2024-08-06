@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import LandingPage from './LandingPage';
 import Game from './Game';
-import '../App.css';
+import '../styles/App.css';
 
 const App = () => {
   const [gameStarted, setGameStarted] = useState(false);
@@ -10,11 +10,16 @@ const App = () => {
     setGameStarted(true);
   };
 
+  const resetGame = () => {
+    setGameStarted(false);
+  };
+
   return (
     <div className="app">
-      {gameStarted ? <Game /> : <LandingPage startGame={startGame} />}
+      {gameStarted ? <Game resetGame={resetGame} /> : <LandingPage startGame={startGame} />}
     </div>
   );
 };
 
 export default App;
+

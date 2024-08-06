@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/LandingPage.css';
 
 const LandingPage = ({ startGame }) => {
   return (

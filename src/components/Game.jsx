@@ -1,9 +1,15 @@
 import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHandRock, faHandPaper, faHandScissors, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import Result from './Result';
 import Scoreboard from './Scoreboard';
+import '../styles/Game.css';
 
-
-const choices = ['rock', 'paper', 'scissors'];
+const choices = [
+  { name: 'rock', icon: faHandRock },
+  { name: 'paper', icon: faHandPaper },
+  { name: 'scissors', icon: faHandScissors },
+];
 
 const getRandomChoice = () => {
   const randomIndex = Math.floor(Math.random() * choices.length);
@@ -22,7 +28,7 @@ const determineWinner = (playerChoice, computerChoice) => {
   return 'lose';
 };
 
-const Game = () => {
+const Game = ({ resetGame }) => {
   const [playerChoice, setPlayerChoice] = useState(null);
   const [computerChoice, setComputerChoice] = useState(null);
   const [result, setResult] = useState(null);
@@ -30,7 +36,7 @@ const Game = () => {
 
   const handleChoice = (choice) => {
     const computerSelection = getRandomChoice();
-    const gameResult = determineWinner(choice, computerSelection);
+    const gameResult = determineWinner(choice.name, computerSelection.name);
 
     setPlayerChoice(choice);
     setComputerChoice(computerSelection);
@@ -45,11 +51,14 @@ const Game = () => {
 
   return (
     <div className="game">
+      <button className="return-button" onClick={resetGame}>
+        <FontAwesomeIcon icon={faArrowLeft} size="2x" />
+      </button>
       <Scoreboard score={score} />
       <div className="choices">
         {choices.map((choice) => (
-          <button key={choice} onClick={() => handleChoice(choice)}>
-            {choice}
+          <button key={choice.name} onClick={() => handleChoice(choice)}>
+            <FontAwesomeIcon icon={choice.icon} size="4x" />
           </button>
         ))}
       </div>
